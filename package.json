@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "webpack --config webpack.config.babel.js --colors",
-    "build": "webpack -d --progress --colors"
+    "compile": "webpack --config webpack.config.base.js --colors",
+    "start": "webpack-dev-server --config webpack.config.dev.babel.js --colors"
   },
   "author": "cc",
   "license": "ISC",
@@ -25,13 +25,19 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.3.0",
     "webpack-merge": "^4.1.0"
+  },
+  "config": {
+    "host": "localhost",
+    "port": 8080
   }
 }
