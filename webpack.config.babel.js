@@ -1,10 +1,10 @@
 import path from 'path';
-
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 export default {
 
         entry: {
             main: './src/entry.js',             // 主网站入口
-            commons: ['react', 'react-dom']
+            commons: ['react','react-dom']
         },
 
         module: {
@@ -17,10 +17,17 @@ export default {
 
         },
         output: {
-            publicPath: '/',
+            publicPath: '/myreact/out/',
             path: path.join(__dirname, 'out'),
             filename: 'js/[chunkhash].[name].js'
         },
-        plugins: []
+        plugins: [
+            // 主页面入口index.html
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                template: './src/index.html',
+                chunks: ['commons', 'main']
+            })
+        ]
 
 }
